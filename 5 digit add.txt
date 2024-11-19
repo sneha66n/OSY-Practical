@@ -1,0 +1,12 @@
+5. Write a shell script to accept five digit number and to perform addition of all the digits.
+
+#!/bin/bash
+read -n 5 -p 'Enter 5 digit number: ' no
+sum1=0
+while [ $no -gt 0 ]
+do
+i=$(( no % 10 ))
+sum1=$(( sum1 + i ))
+no=$(( no / 10 ))
+done
+echo " Sum = $sum1"

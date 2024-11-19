@@ -1,0 +1,19 @@
+#!/bin/bash
+
+for (( i=1;i<8;i=i+2 ))
+do
+for (( j=1;j<7;j++ ))
+do
+if [ $i -le $j ]
+then
+echo -n "* "
+else
+echo -n " "
+if [ $i -eq 7 -a $j -eq 5 ]
+then
+echo "*"
+fi
+fi
+done
+echo ""
+done

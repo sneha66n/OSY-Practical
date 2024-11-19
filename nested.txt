@@ -1,0 +1,19 @@
+#!/bin/bash
+# Date of crea􀆟on : 9/19/2024
+# Created by Meet
+value=10
+if [ $value -gt 0 ]; then
+echo "The value is posi􀆟ve."
+if [ $value -lt 20 ]; then
+echo "The value is less than 20."
+if [ $value -eq 10 ]; then
+echo "The value is exactly 10."
+else
+echo "The value is not 10."
+fi
+else
+echo "The value is greater than or equal to 20."
+fi
+else
+echo "The value is not posi􀆟ve."
+fi

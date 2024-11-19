@@ -1,0 +1,23 @@
+#!/usr/bin/bash
+# date of crea􀆟on: 9/12/2024
+# Created by Meet
+echo "Enter percentage of Student : "
+read grade
+if [ $grade -ge 90 ]
+then
+echo "Grade A"
+elif [ $grade -ge 80 ]
+then
+echo "Grade b"
+elif [ $grade -ge 70 ]
+then
+echo "Grade c"
+elif [ $grade -ge 60 ]
+then
+echo "Grade d"
+elif [ $grade -ge 40 ]
+then
+echo "Grade e"
+else
+echo "Grade Fail"
+fi

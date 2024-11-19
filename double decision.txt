@@ -1,0 +1,10 @@
+2.	Double Decision.
+#!/bin/bash
+echo "Enter percentage of Student : "
+read grade
+if [ $grade -gt 40 ]
+then
+echo "Pass"
+else
+echo "Fail"
+fi

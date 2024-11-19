@@ -1,0 +1,16 @@
+#!/bin/bash
+# Date of Crea􀆟on : 9/19/2024
+# Created by Meet Shah
+echo "Enter number1 number : "
+read n1
+echo "Enter number2 number : "
+read n2
+echo "Enter number3 number : "
+read n3
+if [ "$n1" -gt "$n2" ] && [ "$n1" -gt "$n3" ]; then
+echo "$n1 is Greater"
+elif [ "$n2" -gt "$n3" ]; then
+echo "$n2 is Greater"
+else
+echo "$n3 is Greater"
+fi

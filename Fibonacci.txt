@@ -1,0 +1,14 @@
+#!/bin/bash
+read -p 'Enter no for fibonacci = ' no
+x=0
+y=1
+no1=$no
+while [ $no -gt 0 ]
+do
+z=$(( x + y ))
+#echo $z
+x=$y
+y=$z
+no=$(( no - 1 ))
+done
+echo "Fibonacci of $no1 is $y"
