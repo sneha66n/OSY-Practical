@@ -1,0 +1,13 @@
+Write a shell script which accepts input as a file or directory and displays message whether it is file or directory.
+
+#!/bin/bash
+echo "Enter file or directory name"
+read file
+
+if [ -f "$file" ]; then
+    echo "$file is a file"
+elif [ -d "$file" ]; then
+    echo "$file is a directory"
+else
+    echo "$file is neither a file nor a directory"
+fi

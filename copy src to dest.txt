@@ -1,0 +1,13 @@
+1. Write a shell script to copy source file into the destination file
+
+#!/bin/bash
+echo -n "Enter the file name to copy: "
+read f1
+echo -n "Enter the destination file name: "
+read f2
+if [ -f "$f1" ]; then
+    cp "$f1" "$f2"
+    echo "File copied successfully from $f1 to $f2"
+else
+    echo "Error: $f1 does not exist"
+fi

@@ -1,0 +1,38 @@
+4. Write a file handling program. First check whether it is file or directory, then if it is file the program shall ask user for choices of copying, removing and remaining files. Use case statement.
+
+#!/bin/bash
+echo "Enter file or directory name:"
+read file
+if [ -d "$file" ]; then
+    echo "It is a directory"
+elif [ -f "$file" ]; then
+    echo "Enter your choice:"
+    echo "1. Copy file"
+    echo "2. Rename file"
+    echo "3. Remove file"
+    read ch
+
+    case "$ch" in
+        1)
+            echo "Enter the new file name to copy to:"
+            read cpfile
+            cp "$file" "$cpfile"
+            echo "File copied from $file to $cpfile"
+            ;;
+        2)
+            echo "Enter the new name for the file:"
+            read newname
+            mv "$file" "$newname"
+            echo "$file has been renamed to $newname"
+            ;;
+        3)
+            rm "$file"
+            echo "$file has been removed"
+            ;;
+        *)
+            echo "Invalid choice"
+            ;;
+    esac
+else
+    echo "Error: $file is neither a file nor a directory"
+fi

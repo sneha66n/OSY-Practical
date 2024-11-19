@@ -1,0 +1,74 @@
+Practical 13
+
+#!/bin/bash
+echo "Enter the File : "
+read line
+if [ -r $line ]
+then
+    echo "$line has all the read permissions"
+fi
+if [ -x $line ]
+then
+    echo "$line has all the execute permissions"
+fi
+if [ -w $line ]
+then
+    echo "$line has all the write permissions"
+fi
+
+ 
+
+
+
+1) Write a shell script which displays the list of all executable files in the current working directory
+ 
+ 
+#!/bin/bash
+pwd
+ls>f
+exec < f
+while read line
+do
+	if [ -f "$line" ]
+	then
+		if [ -x "$line" ]
+	        then
+			echo "$line"
+			fi
+		fi
+done
+rm f
+
+
+
+2) Write a shell script which displays a list of all the files in the current directory to which user has read, write and execute permission.
+
+#!/bin/bash
+
+pwd
+ls > f
+exec < f
+while read line
+do
+    # Check if it's a file
+    if [ -f "$line" ]
+    then
+        # Check if the file has read, write, and execute permissions
+        if [ -r "$line" -a -w "$line" -a -x "$line" ]
+        then
+            # Print the file name if it has all permissions
+            echo "$line has all the permissions"
+        fi
+    fi
+done
+
+ 
+
+
+3) Write a shell script which accepts a filename and assign it all the permissions.
+
+#!/bin/bash
+echo "Enter the file: "
+read file
+chmod 777 "$file"
+
