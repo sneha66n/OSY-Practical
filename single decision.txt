@@ -1,0 +1,24 @@
+1.	Single Decision.
+#!/bin/bash
+echo "Enter percentage here :"
+read grade
+if [ $grade -ge 90 ] && [ $grade -le 100 ]
+then
+echo "Grade A"
+fi
+if [ $grade -ge 70 ] && [ $grade -lt 90 ]
+then
+echo "Grade B"
+fi
+if [ $grade -ge 50 ] && [ $grade -lt 70 ]
+then
+echo "Grade C"
+fi
+if [ $grade -ge 35 ] && [ $grade -lt 50 ]
+then
+echo "Grade D"
+fi
+if [ $grade -lt 35 ]
+then
+echo "FAIL"
+fi
