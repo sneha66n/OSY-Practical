@@ -1,0 +1,64 @@
+#include <stdio.h>
+
+int main() {
+    int i, j, n, a[50], frame[10], no, k, Flag, count = 0, hitCount = 0;
+
+    // Input the number of pages
+    printf("ENTER THE NUMBER OF PAGES: ");
+    scanf("%d", &n);
+
+    // Input the page numbers
+    printf("ENTER THE PAGE NUMBER:\n");
+    for (i = 0; i < n; i++) // Index should start from 0
+        scanf("%d", &a[i]);
+
+    // Input the number of frames
+    printf("ENTER THE NUMBER OF FRAMES: ");
+    scanf("%d", &no);
+
+    // Initialize frames to -1
+    for (i = 0; i < no; i++)
+        frame[i] = -1;
+
+    j = 0; // Pointer for the next frame to be replaced
+
+    // Print header with aligned columns
+    printf("\n\t\t\tRef Page Pages frames\t\tHit or Fault\n");
+    printf("\t---------------------------------------------------\n"); // Separator line
+
+    // Simulate page replacement
+    for (i = 0; i < n; i++) { // Loop through each page
+        printf("\t%d\t\t", a[i]);
+        Flag = 0;
+
+        // Check if the page is already in the frame
+        for (k = 0; k < no; k++) {
+            if (frame[k] == a[i]) {
+                Flag = 1; // Page hit
+                hitCount++; // Increment hit count
+                break; // No need to check further
+            }
+        }
+
+
+
+        // Print current frame status
+        for (k = 0; k < no; k++)
+            printf("%d\t", frame[k]);
+        // If the page is not in the frame
+        if (Flag == 0) {
+            frame[j] = a[i]; // Replace the frame with the new page
+            j = (j + 1) % no; // Increment position circularly
+            count++; // Increment page fault count
+            printf("\tPage Fault\t"); // Indicate Page Fault
+        } else {
+            printf("\tPage Hit\t"); // Indicate Page Hit
+        }
+        printf("\n");
+    }
+
+    // Output the number of page faults and page hits
+    printf("\nPage Faults: %d\n", count);
+    printf("Page Hits: %d\n", hitCount);
+    return 0;
+}
